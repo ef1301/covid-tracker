@@ -1,8 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Map } from '@esri/react-arcgis';
+
+ReactDOM.render(
+  <Map style={{height: '100vh', width: '100vw'}}
+       mapProperties={{ basemap: 'dark-gray'}}
+       viewProperties={{
+         center: [-70, 25],
+         zoom: 4
+       }}
+  />,
+  document.getElementById('container')
+);
 
 ReactDOM.render(
   <React.StrictMode>
