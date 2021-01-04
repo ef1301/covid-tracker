@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
-import StateCard from '../cards/states.jsx';
+import StateCard from '../cards/states.js';
+import '../styles/styles.css';
 
-export default class MyComponent extends Component {
+export default class USStateStats extends Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: [],
+      deaths: true
     };
+  }
+
+  statsChange() {
+    this.setState({
+      deaths: !this.state.deaths
+    });
   }
 
   componentDidMount() {
@@ -41,11 +49,17 @@ export default class MyComponent extends Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div id="currentStats">
-          {items.map(item => (
-            <StateCard info={item} />
-          ))}
+        <div>
+          <h1>US State Level</h1>
+          <h6>Current Cases, Deaths, Recovered</h6>
+          <div id="currentStats">
+            {items.map(item => (
+              <StateCard info={item} deaths={this.state.deaths}/>
+            ))}
+          </div>
+          <button onClick={this.statsChange}>Switch</button>
         </div>
+
       );
     }
   }

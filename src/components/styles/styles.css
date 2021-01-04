@@ -1,0 +1,6 @@
+#currentStats, #countryStats {
+    width: 25vw;
+    height: 75vh;
+    overflow-y: auto;
+    text-align: left;
+}

@@ -1,11 +1,13 @@
 import './App.css';
 import React from 'react';
-import MyComponent from './components/containers/search.js';
+import USStateStats from './components/containers/states.js';
+import CountryStats from './components/containers/countries.js';
 
 function App() {
   return (
     <div className="App">
-      <MyComponent />
+      <USStateStats />
+      <CountryStats />
     </div>
   );
 }

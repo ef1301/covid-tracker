@@ -22,6 +22,9 @@ export default class Map extends Component {
       map: map,
       center: [-118, 34],
       zoom: 8,
+      ui: {
+        components: ["attribution"]
+      }
     });
     const search = new Search({ view });
     this.view.ui.add(search, "top-right");

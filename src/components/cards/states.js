@@ -68,18 +68,28 @@ function abbrState(input, to){
 export default class StateCard extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    console.log(props);
   }
 
   render() {
     let item = this.props.info;
-    return(
-      <div>
-        <h1>{abbrState(item.state, "name")}</h1>
-        <p>Current cases: {item.positive}</p>
-        <p>Deaths: {item.deathConfirmed}</p>
-        <p>Recovered: {item.recovered}</p>
-      </div>
-    );
+    if(this.props.deaths === true) {
+      return(
+        <div>
+          <h1>{abbrState(item.state, "name")}</h1>
+          <p>Deaths: {item.deathConfirmed}</p>
+        </div>
+      );
+    }
+    else {
+      return(
+        <div>
+          <h1>{abbrState(item.state, "name")}</h1>
+          <p>Current cases: {item.positive}</p>
+          <p>Deaths: {item.deathConfirmed}</p>
+          <p>Recovered: {item.recovered}</p>
+        </div>
+      );
+    }
   }
 };

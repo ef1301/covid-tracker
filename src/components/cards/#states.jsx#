@@ -72,7 +72,6 @@ export default class StateCard extends Component {
   }
 
   render() {
-    let item = this.props.info;
     return(
       <div>
         <h1>{abbrState(item.state, "name")}</h1>
