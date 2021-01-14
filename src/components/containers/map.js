@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
-import { MapView } from 'esri/views/MapView';
-import Search from 'esri/widgets/Search';
-import { WebMap } from 'esri/WebMap';
+import * as ReactDOM from 'react-dom';
+import { Map } from '@esri/react-arcgis';
+import MyFeatureLayer from './MyFeatureLayer.js';
+
+ReactDOM.render(
+  <Map>
+    <MyFeatureLayer
+      featureLayerProperties=({
+        url: 'https://opendata.arcgis.com/datasets/1cb306b5331945548745a5ccd290188e_1.geojson'
+      })
+    >
+    </MyFeatureLayer>
+  </Map>,
+  document.getElementById('container')
+);
 
 export default class Map extends Component {
   constructor(props) {
@@ -26,8 +38,6 @@ export default class Map extends Component {
         components: ["attribution"]
       }
     });
-    const search = new Search({ view });
-    this.view.ui.add(search, "top-right");
   }
 
   componentWillUnmount() {

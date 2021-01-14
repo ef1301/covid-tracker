@@ -5,7 +5,6 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker.js';
 import reportWebVitals from './reportWebVitals';
-
 import { Map } from '@esri/react-arcgis';
 import MyFeatureLayer from './components/containers/MyFeatureLayer.js';
 
@@ -17,12 +16,13 @@ ReactDOM.render(
          zoom: 4
        }}
   >
-    <MyFeatureLayer
-      featureLayerProperties={{
-        url: 'https://services1.arcgis.com/0MSEUqKaxRlEPj5g/arcgis/rest/services/ncov_cases2_v1/FeatureServer/1/'
-      }}
-    >
-    </MyFeatureLayer>
+  <MyFeatureLayer
+    featureLayerProperties=" ({
+      url: 'https://opendata.arcgis.com/datasets/1cb306b5331945548745a5ccd290188e_1.geojson'
+    })
+  >
+
+  </MyFeatureLayer>
   </Map>
   ,
   document.getElementById('container')

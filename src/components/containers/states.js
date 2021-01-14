@@ -9,18 +9,55 @@ export default class USStateStats extends Component {
       error: null,
       isLoaded: false,
       items: [],
-      deaths: true
+      status: "current"
     };
+
+    this.statsChange = this.statsChange.bind(this);
+    this.currentCases = this.currentCases.bind(this);
+    this.currentDeaths = this.currentDeaths.bind(this);
+    this.currentRecovered = this.currentRecovered.bind(this);
   }
 
-  statsChange() {
+  currentCases() {
+    if(this.state.status === "current") {
+
+    } else {
+      this.setState({
+        status: "current"
+      });
+    }
+  }
+
+  currentDeaths() {
+    if(this.state.status === "deaths") {
+
+    } else {
+      this.setState({
+        status: "deaths"
+      });
+    }
+  }
+
+  currentRecovered() {
+    if(this.state.status === "recovered") {
+
+    } else {
+      this.setState({
+        status: "recovered"
+      });
+    }
+  }
+
+  statsChange(e) {
+    e.preventDefault();
     this.setState({
       deaths: !this.state.deaths
     });
   }
 
   componentDidMount() {
-    fetch("https://api.covidtracking.com/v1/states/current.json")
+    //"https://api.covidtracking.com/v1/states/current.json"
+    fetch("https://disease.sh/v3/covid-19/states")
       .then(res => res.json())
       .then(
         (result) => {
@@ -54,10 +91,14 @@ export default class USStateStats extends Component {
           <h6>Current Cases, Deaths, Recovered</h6>
           <div id="currentStats">
             {items.map(item => (
-              <StateCard info={item} deaths={this.state.deaths}/>
+              <StateCard info={item} status={this.state.status}/>
             ))}
           </div>
-          <button onClick={this.statsChange}>Switch</button>
+          <div className="stat-controls">
+            <button onClick={this.currentCases}>Current Cases</button>
+            <button onClick={this.currentDeaths}>Deaths</button>
+            <button onClick={this.currentRecovered}>Recovered</button>
+          </div>
         </div>
 
       );

@@ -8,13 +8,30 @@ export default class CountryCard extends Component {
 
   render() {
     let item = this.props.info;
-    return(
-      <div>
-        <h1>{item.country}</h1>
-        <p>Current cases: {item.cases}</p>
-        <p>Deaths: {item.deaths}</p>
-        <p>Recovered: {item.recovered}</p>
-      </div>
-    );
+    if(this.props.status === "deaths") {
+      return(
+        <div className="country-card">
+          <h1>{item.country}</h1>
+          <p>Deaths: {item.deaths}</p>
+        </div>
+      );
+    }
+    else if(this.props.status === "recovered") {
+      return(
+        <div className="country-card">
+          <h1>{item.country}</h1>
+          <p>Recovered: {item.recovered}</p>
+        </div>
+      );
+    }
+    else {
+      return(
+        <div className="country-card">
+          <h1>{item.country}</h1>
+          <p>Current cases: {item.cases}</p>
+          <p>Population: {item.population}</p>
+        </div>
+      );
+    }
   }
 };

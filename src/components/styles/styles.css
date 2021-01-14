@@ -1,6 +1,45 @@
+#container {
+    display: flex;
+    flex-flow: row wrap;
+    overflow: none;
+}
+
 #currentStats, #countryStats {
-    width: 25vw;
+    width: 45vw;
     height: 75vh;
+    margin: 0;
     overflow-y: auto;
     text-align: left;
+    border: solid 1px gray;
+}
+
+.App {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    margin: 10vh auto;
+}
+
+.stat-contorls {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.stat-controls button {
+    background-color: gray;
+    border: none;
+    padding: 1%;
+    color: white;
+    justify-content: center;
+    margin: 2% 0%;
+}
+
+.stat-controls button:hover, button:active {
+    background-color: rgb(40,40,40);
+}
+
+
+.state-card, .country-card {
+    border-bottom: solid 1px white;
+    padding: 1%;
 }

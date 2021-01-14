@@ -73,21 +73,28 @@ export default class StateCard extends Component {
 
   render() {
     let item = this.props.info;
-    if(this.props.deaths === true) {
+    if(this.props.status === "deaths") {
       return(
-        <div>
-          <h1>{abbrState(item.state, "name")}</h1>
-          <p>Deaths: {item.deathConfirmed}</p>
+        <div className="state-card">
+          <h1>{item.state}</h1>
+          <p>Deaths: {item.deaths}</p>
+        </div>
+      );
+    }
+    else if(this.props.status === "recovered") {
+      return(
+        <div className="state-card">
+          <h1>{item.state}</h1>
+          <p>Recovered: {item.recovered}</p>
         </div>
       );
     }
     else {
       return(
-        <div>
-          <h1>{abbrState(item.state, "name")}</h1>
-          <p>Current cases: {item.positive}</p>
-          <p>Deaths: {item.deathConfirmed}</p>
-          <p>Recovered: {item.recovered}</p>
+        <div className="state-card">
+          <h1>{item.state}</h1>
+          <p>Current cases: {item.cases}</p>
+          <p>Population: {item.population}</p>
         </div>
       );
     }
