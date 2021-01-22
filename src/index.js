@@ -7,7 +7,8 @@ import * as serviceWorker from './serviceWorker.js';
 import reportWebVitals from './reportWebVitals';
 
 import { Map } from '@esri/react-arcgis';
-import MyFeatureLayer from './components/containers/MyFeatureLayer.js';
+//import MyFeatureLayer from './components/containers/MyFeatureLayer.js';
+import MyGeoJSONLayer from './components/containers/MyGeoJSON.js';
 
 ReactDOM.render(
   <Map style={{height: '100vh', width: '100vw'}}
@@ -17,12 +18,12 @@ ReactDOM.render(
          zoom: 4
        }}
   >
-    <MyFeatureLayer
-      featureLayerProperties={{
-        url: 'https://services1.arcgis.com/0MSEUqKaxRlEPj5g/arcgis/rest/services/ncov_cases2_v1/FeatureServer/1/'
+    <MyGeoJSONLayer
+      geoJSONLayerProperties={{
+        url: 'https://opendata.arcgis.com/datasets/1cb306b5331945548745a5ccd290188e_1.geojson'
       }}
     >
-    </MyFeatureLayer>
+    </MyGeoJSONLayer>
   </Map>
   ,
   document.getElementById('container')
